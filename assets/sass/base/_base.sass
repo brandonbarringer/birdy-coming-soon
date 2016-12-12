@@ -1,0 +1,85 @@
+*, *:before, *:after
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased
+
+img
+  max-width: 100%
+  display: block
+
+body
+	width: 100vw
+	height: 100vh
+	overflow: hidden
+	background: 
+		image: url(/assets/visual/images/src/hero-home.jpg) 
+		size: cover
+		position: center center
+
+.overlay
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background: rgba(0,0,0,.45)
+	z-index: -1
+
+main
+	color: #fff
+	display: flex
+	width: 100%
+	height: 100%
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	font-family: Roboto
+	padding: 20px
+	text-align: center
+	h1
+		+font-scale(48, 110, 320, 1920)
+		font-family: cubano
+		margin-bottom: 20px
+		line-height: 1
+	p
+		+font-scale(24, 32, 320, 1920)
+		line-height: 1.2
+		max-width: 70%
+		margin-bottom: 20px
+	.logo img 
+		width: 250px
+		margin-bottom: 80px
+form
+	display: flex
+	padding: 0 20px
+	width: 100%
+	justify-content: center
+	input[type="email"]
+		width: 300px
+		font-size: 16px
+		color: #434343
+		padding: 20px
+		border: none
+		border-radius: 3px 0 0 3px
+		transition: background .2s
+		&:focus
+			outline: none
+			background: #f2f2f2
+	button
+		color: #fff 
+		background: #53C473
+		font-family: cubano
+		font-size: 18px
+		border: none
+		padding: 5px 15px
+		border-radius: 0 3px 3px 0
+		cursor: pointer
+		transition: background .2s
+		&:focus
+			outline: none
+		&:hover
+			background: darken(#53C473, 10%)
+
+#subscribe-result
+	margin-top: 20px
+	font-family: roboto 
+	font-size: 16px
