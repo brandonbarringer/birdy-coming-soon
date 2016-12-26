@@ -21,10 +21,9 @@
 			<input type="email" pattern="[^ @]*@[^ @]*" placeholder="yourEmail@example.com" name="EMAIL" required>
 			<button type="submit">Stay Informed</button>	
 		</form>
-		<div id="subscribe-result">
+		<div id="subscribe-result"></div>
 	</main>
 	<div class="overlay"></div>
-
 </body>
 <script src="assets/scripts/dist/vendor.js"></script>
 <script src="assets/scripts/dist/app.min.js"></script>

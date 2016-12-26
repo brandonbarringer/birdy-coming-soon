@@ -9,13 +9,13 @@
 	function ajaxMailChimpForm($form, $resultElement) {
 		// Hijack the submission. We'll submit the form manually.
 		$form.submit(function (e) {
-			e.preventDefault();
+
 			if (!isValidEmail($form)) {
-				var error = "A valid email address must be provided.";
+				var error = "<p>A valid email address must be provided.</p>";
 				$resultElement.html(error);
-				$resultElement.css("color", "red");
 			} else {
-				$resultElement.css("color", "white");
+				e.preventDefault();
+				$resultElement.css({ "display": "flex" }).addClass('fadeIn');
 				$resultElement.html("Subscribing...");
 				submitSubscribeForm($form, $resultElement);
 			}
@@ -50,14 +50,11 @@
 			success: function success(data) {
 				if (data.result != "success") {
 					var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
-					$resultElement.css("color", "white");
 					if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-						message = "You're already subscribed. Thank you.";
-						$resultElement.css("color", "white");
+						message = "<p>You're already subscribed. Thank you.</p>";
 					}
 					$resultElement.html(message);
 				} else {
-					$resultElement.css("color", "white");
 					$resultElement.html("Thank you!<br>You must confirm the subscription in your inbox.");
 				}
 			}
