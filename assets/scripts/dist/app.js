@@ -6,17 +6,18 @@
 	// Turn the given MailChimp form into an ajax version of it.
 	// If resultElement is given, the subscribe result is set as html to
 	// that element.
+	var fbMessage = '<p>Pour plus d&apos;informations sur le lancement du site, suivez notre page Facebook et n&apos;hésitez pas à nous laisser vos encouragements et suggestions !</p><button>Voir La Page</button>';
 	function ajaxMailChimpForm($form, $resultElement) {
 		// Hijack the submission. We'll submit the form manually.
 		$form.submit(function (e) {
 
 			if (!isValidEmail($form)) {
-				var error = "<p>A valid email address must be provided.</p>";
+				var error = "<p>Merci de saisir une adresse e-mail valide.</p>";
 				$resultElement.html(error);
 			} else {
 				e.preventDefault();
 				$resultElement.css({ "display": "flex" }).addClass('fadeIn');
-				$resultElement.html("Subscribing...");
+				$resultElement.html("Chargement...");
 				submitSubscribeForm($form, $resultElement);
 			}
 		});
@@ -49,13 +50,13 @@
 			},
 			success: function success(data) {
 				if (data.result != "success") {
-					var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
+					var message = data.msg || "Désolé, nous ne pouvons pas finaliser votre inscription pour le moment. Merci de réessayer plus tard.";
 					if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-						message = "<p>You're already subscribed. Thank you.</p>";
+						message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>";
 					}
-					$resultElement.html(message);
+					$resultElement.html(message + fbMessage);
 				} else {
-					$resultElement.html("Thank you!<br>You must confirm the subscription in your inbox.");
+					$resultElement.html("Merci pour votre inscription !<br>Afin de finaliser votre abonnement, veuillez cliquer sur le lien présent dans l’e-mail que nous venons de vous envoyer." + fbMessage);
 				}
 			}
 		});

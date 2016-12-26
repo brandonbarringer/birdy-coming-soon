@@ -35,6 +35,20 @@ main
 	font-family: Roboto
 	padding: 20px
 	text-align: center
+	button
+		color: #fff 
+		background: #53C473
+		font-family: cubano
+		font-size: 18px
+		border: none
+		padding: 5px 15px
+		border-radius: 0 3px 3px 0
+		cursor: pointer
+		transition: background .2s
+		&:focus
+			outline: none
+		&:hover
+			background: darken(#53C473, 10%)
 	h1
 		+font-scale(48, 110, 320, 1920)
 		font-family: cubano
@@ -64,32 +78,20 @@ form
 		&:focus
 			outline: none
 			background: #f2f2f2
-	button
-		color: #fff 
-		background: #53C473
-		font-family: cubano
-		font-size: 18px
-		border: none
-		padding: 5px 15px
-		border-radius: 0 3px 3px 0
-		cursor: pointer
-		transition: background .2s
-		&:focus
-			outline: none
-		&:hover
-			background: darken(#53C473, 10%)
 
 #subscribe-result
 	font-family: roboto
 	display: flex 
 	align-items: center
 	justify-content: center
+	flex-direction: column
 	text-align: center
 	opacity: 0
 	font-size: 60px
 	color: #232323
 	font-weight: bold
-	background: white
+	background: white url(/assets/visual/svgs/src/birdyConnect-dark_black) center 10% no-repeat
+	background-size: 300px
 	width: 100vw
 	height: 100vh
 	position: absolute
