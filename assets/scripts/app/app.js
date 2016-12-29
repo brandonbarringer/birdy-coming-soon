@@ -3,7 +3,7 @@
 	        // Turn the given MailChimp form into an ajax version of it.
 	        // If resultElement is given, the subscribe result is set as html to
 	        // that element.
-	        var fbMessage = '<p>Pour plus d&apos;informations sur le lancement du site, suivez notre page Facebook et n&apos;hésitez pas à nous laisser vos encouragements et suggestions !</p><button>Voir La Page</button>';
+	        var fbMessage = '<p>Pour plus d&apos;informations sur le lancement du site, suivez notre page Facebook et n&apos;hésitez pas à nous laisser vos encouragements et suggestions !</p><a href="https://www.facebook.com/Birdy-Connect-1738993203086942/"><button>Voir La Page</button></a>';
 	        function ajaxMailChimpForm($form, $resultElement){
 	            // Hijack the submission. We'll submit the form manually.
 	            $form.submit(function(e) {
