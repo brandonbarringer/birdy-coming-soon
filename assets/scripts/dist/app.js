@@ -2,7 +2,7 @@
 'use strict';
 
 (function () {
-	$('.back').on('click', '#subscribe-result', function () {
+	$('.back').on('click', '.subscribe', function () {
 		$('#subscribe-result').hide(700);
 		console.log('working');
 	});
