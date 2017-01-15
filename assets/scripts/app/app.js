@@ -1,7 +1,7 @@
 (function() {
-	$('.back').on('click', '.subscribe', function() {
+	$('.back').on('click', function() {
 		$('#subscribe-result').hide(700);
-		console.log('working')
+		$('.back').hide();
 	});
 
 	ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
@@ -51,16 +51,16 @@
 	                    console.log(error)
 	                },
 	                success: function(data){
-	                	console.log(data.result)
 	                    if (data.result != "success") {
 	                        var message = data.msg || "Désolé, nous ne pouvons pas finaliser votre inscription pour le moment. Merci de réessayer plus tard.";
 	                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
 	                            message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>" + fbMessage;
 	                        } 
 	                        if (data.msg && data.msg.indexOf("invalid") >= 0) {
-	                        	message = data.msg + '<button class="back">retourner</button>';
+	                        	$('.back').show();
+	                        	message = data.msg ;
 	                        }
-	                        $resultElement.html(message);
+	                        $resultElement.prepend(message);
 	                    } else {
 	                        $resultElement.html("Merci pour votre inscription !<br>Afin de finaliser votre abonnement, veuillez cliquer sur le lien présent dans l’e-mail que nous venons de vous envoyer." + fbMessage);
 	                    }
