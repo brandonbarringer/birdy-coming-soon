@@ -18,11 +18,11 @@
 
 			if (!isValidEmail($form)) {
 				var error = "<p>Merci de saisir une adresse e-mail valide.</p>";
-				$resultElement.html(error);
+				$resultElement.prepend(error);
 			} else {
 				e.preventDefault();
 				$resultElement.show(700);
-				$resultElement.html("Chargement...");
+				$resultElement.prepend("Chargement...");
 				submitSubscribeForm($form, $resultElement);
 			}
 		});
@@ -65,7 +65,7 @@
 					}
 					$resultElement.prepend(message);
 				} else {
-					$resultElement.html("Merci pour votre inscription !<br>Afin de finaliser votre abonnement, veuillez cliquer sur le lien présent dans l’e-mail que nous venons de vous envoyer." + fbMessage);
+					$resultElement.prepend("Merci pour votre inscription !<br>Afin de finaliser votre abonnement, veuillez cliquer sur le lien présent dans l’e-mail que nous venons de vous envoyer." + fbMessage);
 				}
 			}
 		});
