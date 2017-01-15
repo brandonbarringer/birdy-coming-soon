@@ -46,12 +46,13 @@
 	                    console.log(error)
 	                },
 	                success: function(data){
+	                	console.log(data.result)
 	                    if (data.result != "success") {
 	                        var message = data.msg || "Désolé, nous ne pouvons pas finaliser votre inscription pour le moment. Merci de réessayer plus tard.";
 	                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
 	                            message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>";
 	                        }
-	                        $resultElement.html(message +fbMessage);
+	                        $resultElement.html(message + fbMessage);
 	                    } else {
 	                        $resultElement.html("Merci pour votre inscription !<br>Afin de finaliser votre abonnement, veuillez cliquer sur le lien présent dans l’e-mail que nous venons de vous envoyer." + fbMessage);
 	                    }
