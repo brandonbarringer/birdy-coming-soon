@@ -19,7 +19,7 @@
 	                } else {
 	                	e.preventDefault();
 	                	$resultElement.show(700);
-	                    $resultElement.prepend("Chargement...");
+	                    $resultElement.prepend('<span class="loading">Chargement...');
 	                    submitSubscribeForm($form, $resultElement);
 	                }
 	            });
@@ -60,8 +60,10 @@
 	                        	$('.back').show();
 	                        	message = data.msg;
 	                        }
+	                        $('.loading').hide();
 	                        $resultElement.prepend(message);
 	                    } else {
+	                    	$('.loading').hide();
 	                        $resultElement.prepend("Merci pour votre inscription !<br>Afin de finaliser votre abonnement, veuillez cliquer sur le lien présent dans l’e-mail que nous venons de vous envoyer." + fbMessage);
 	                    }
 	                }
