@@ -11,7 +11,7 @@ module.exports = function ( gulp, plugins ) {
       .pipe( plugins.sourcemaps.init() )
       .pipe( plugins.sass() )
       .pipe( plugins.autoprefixer({
-        browsers: [ 'last 3 versions' ],
+        browsers: [ 'last 4 versions' ],
         remove: false
       }))
       .pipe( plugins.sourcemaps.write() )

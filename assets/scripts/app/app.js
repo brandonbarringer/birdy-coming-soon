@@ -13,7 +13,7 @@
 	                    $resultElement.html(error);
 	                } else {
 	                	e.preventDefault();
-	                	$resultElement.css({"display" : "flex"}).addClass('fadeIn');
+	                	$resultElement.show(700);
 	                    $resultElement.html("Chargement...");
 	                    submitSubscribeForm($form, $resultElement);
 	                }
