@@ -57,7 +57,7 @@
 	                            message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>" + fbMessage;
 	                        } 
 	                        if (data.msg && data.msg.indexOf("invalid") >= 0) {
-	                        	message = '<button class="back">retourner</button>';
+	                        	message = data.msg + '<button class="back">retourner</button>';
 	                        }
 	                        $resultElement.html(message);
 	                    } else {
