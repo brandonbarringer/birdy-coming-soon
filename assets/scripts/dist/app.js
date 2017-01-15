@@ -1,7 +1,11 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
+'use strict';
 
 (function () {
+	$('.back').click(function () {
+		$('#subscribe-result').hide(700);
+	});
+
 	ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
 	// Turn the given MailChimp form into an ajax version of it.
 	// If resultElement is given, the subscribe result is set as html to
@@ -49,12 +53,15 @@
 				console.log(_error);
 			},
 			success: function success(data) {
+				console.log(data.result);
 				if (data.result != "success") {
 					var message = data.msg || "Désolé, nous ne pouvons pas finaliser votre inscription pour le moment. Merci de réessayer plus tard.";
 					if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-						message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>";
+						message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>" + fbMessage;
+					} else if (data.msg && data.msg.indexOf("invalid") >= 0) {
+						messge = '<button class="back">retourner</button>';
 					}
-					$resultElement.html(message + fbMessage);
+					$resultElement.html(message);
 				} else {
 					$resultElement.html("Merci pour votre inscription !<br>Afin de finaliser votre abonnement, veuillez cliquer sur le lien présent dans l’e-mail que nous venons de vous envoyer." + fbMessage);
 				}
