@@ -55,8 +55,9 @@
 	                        var message = data.msg || "Désolé, nous ne pouvons pas finaliser votre inscription pour le moment. Merci de réessayer plus tard.";
 	                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
 	                            message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>" + fbMessage;
-	                        } else if (data.msg && data.msg.indexOf("invalid") >= 0) {
-	                        	messge = '<button class="back">retourner</button>';
+	                        } 
+	                        if (data.msg && data.msg.indexOf("invalid") >= 0) {
+	                        	message = '<button class="back">retourner</button>';
 	                        }
 	                        $resultElement.html(message);
 	                    } else {
