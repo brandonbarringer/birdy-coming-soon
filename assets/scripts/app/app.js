@@ -53,12 +53,12 @@
 	                success: function(data){
 	                    if (data.result != "success") {
 	                        var message = data.msg || "Désolé, nous ne pouvons pas finaliser votre inscription pour le moment. Merci de réessayer plus tard.";
-	                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+	                        if (data.msg && data.msg.indexOf("déjà abonné") >= 0) {
 	                            message = "<p>Ouah! Vous devez sûrement être impatient d’en savoir plus, vous êtes déjà enregistré !</p>" + fbMessage;
 	                        } 
-	                        if (data.msg && data.msg.indexOf("invalid") >= 0) {
+	                        if (data.msg && data.msg.indexOf("invalide") >= 0 || data.msg.indexOf("invalid") >= 0) {
 	                        	$('.back').show();
-	                        	message = data.msg;
+	                        	message = "<p>Merci de saisir une adresse e-mail valide.</p>"
 	                        }
 	                        $('.loading').hide();
 	                        $resultElement.prepend(message);
