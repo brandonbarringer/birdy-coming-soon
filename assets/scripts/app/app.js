@@ -48,7 +48,7 @@
 	                jsonp: "c", // trigger MailChimp to return a JSONP response
 	                contentType: "application/json; charset=utf-8",
 	                error: function(error){
-	                    console.log(error)
+	                    console.log(error);
 	                },
 	                success: function(data){
 	                    if (data.result != "success") {
@@ -58,7 +58,7 @@
 	                        } 
 	                        if (data.msg && data.msg.indexOf("invalide") >= 0 || data.msg.indexOf("invalid") >= 0) {
 	                        	$('.back').show();
-	                        	message = "<p>Merci de saisir une adresse e-mail valide.</p>"
+	                        	message = "<p>Merci de saisir une adresse e-mail valide.</p>";
 	                        }
 	                        $('.loading').hide();
 	                        $resultElement.prepend(message);
@@ -69,5 +69,6 @@
 	                }
 	            });
 	        }
+	    })();
 
-})();
+
